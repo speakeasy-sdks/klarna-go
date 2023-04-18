@@ -1,7 +1,7 @@
 configVersion: 1.0.0
 generation:
   telemetryEnabled: false
-  sdkClassName: Klarna
+  sdkClassName: klarna
   sdkFlattening: true
   singleTagPerOp: false
 go:
