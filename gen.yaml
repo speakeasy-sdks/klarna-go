@@ -5,5 +5,5 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 go:
-  version: ""
+  version: "1.0.0"
   packageName: github.com/speakeasy-sdks/klarna-go
