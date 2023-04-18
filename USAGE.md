@@ -1,0 +1,156 @@
+<!-- Start SDK Example Usage -->
+```go
+package main
+
+import (
+    "context"
+    "log"
+    "github.com/speakeasy-sdks/klarna-go"
+    "github.com/speakeasy-sdks/klarna-go/pkg/models/shared"
+    "github.com/speakeasy-sdks/klarna-go/pkg/models/operations"
+)
+
+func main() {
+    s := klarna.New(
+        klarna.WithSecurity(shared.Security{
+            APIKeyAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+        }),
+    )
+
+    ctx := context.Background()    
+    req := operations.CreateOrderRequest{
+        AuthorizationToken: "corrupti",
+        CreateOrderRequestInput: &shared.CreateOrderRequestInput{
+            AutoCapture: false,
+            BillingAddress: &shared.Address{
+                Attention: "Attn",
+                City: "London",
+                Country: "GB",
+                Email: "test.sam@test.com",
+                FamilyName: "Andersson",
+                GivenName: "Adam",
+                OrganizationName: "provident",
+                Phone: "+44795465131",
+                PostalCode: "W1G 0PW",
+                Region: "OH",
+                StreetAddress: "33 Cavendish Square",
+                StreetAddress2: "Floor 22 / Flat 2",
+                Title: "Mr.",
+            },
+            CustomPaymentMethodIds: []string{
+                "quibusdam",
+                "unde",
+                "nulla",
+            },
+            Customer: &shared.Customer{
+                DateOfBirth: "1978-12-31",
+                Gender: "male",
+                LastFourSsn: "corrupti",
+                NationalIdentificationNumber: "illum",
+                OrganizationEntityType: "LIMITED_PARTNERSHIP",
+                OrganizationRegistrationID: "error",
+                Title: "Mr.",
+                Type: "organization",
+                VatID: "deserunt",
+            },
+            Locale: "en-GB",
+            MerchantData: "{"order_specific":[{"substore":"Women's Fashion","product_name":"Women Sweatshirt"}]}",
+            MerchantReference1: "ON4711",
+            MerchantReference2: "hdt53h-zdgg6-hdaff2",
+            MerchantUrls: &shared.MerchantUrls{
+                Authorization: "https://www.example-url.com/authorization",
+                Confirmation: "https://www.example-url.com/confirmation",
+                Notification: "https://www.example-url.com/notification",
+                Push: "https://www.example-url.com/push",
+            },
+            OrderAmount: 2500,
+            OrderLines: []shared.OrderLine{
+                shared.OrderLine{
+                    ImageURL: "https://www.exampleobjects.com/logo.png",
+                    MerchantData: "{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}",
+                    Name: "Running shoe",
+                    ProductIdentifiers: &shared.ProductIdentifiers{
+                        Brand: "shoe-brand",
+                        CategoryPath: "Shoes > Running",
+                        Color: "white",
+                        GlobalTradeItemNumber: "4912345678904",
+                        ManufacturerPartNumber: "AD6654412-334.22",
+                        Size: "small",
+                    },
+                    ProductURL: "https://.../AD6654412.html",
+                    Quantity: 1,
+                    QuantityUnit: "pcs",
+                    Reference: "AD6654412",
+                    Subscription: &shared.Subscription{
+                        Interval: "WEEK",
+                        IntervalCount: 297534,
+                        Name: "Larry Windler",
+                    },
+                    TaxRate: 1900,
+                    TotalAmount: 2500,
+                    TotalDiscountAmount: 500,
+                    TotalTaxAmount: 475,
+                    Type: "physical",
+                    UnitPrice: 2500,
+                },
+                shared.OrderLine{
+                    ImageURL: "https://www.exampleobjects.com/logo.png",
+                    MerchantData: "{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}",
+                    Name: "Running shoe",
+                    ProductIdentifiers: &shared.ProductIdentifiers{
+                        Brand: "shoe-brand",
+                        CategoryPath: "Shoes > Running",
+                        Color: "white",
+                        GlobalTradeItemNumber: "4912345678904",
+                        ManufacturerPartNumber: "AD6654412-334.22",
+                        Size: "small",
+                    },
+                    ProductURL: "https://.../AD6654412.html",
+                    Quantity: 1,
+                    QuantityUnit: "pcs",
+                    Reference: "AD6654412",
+                    Subscription: &shared.Subscription{
+                        Interval: "WEEK",
+                        IntervalCount: 791725,
+                        Name: "Ken Kshlerin",
+                    },
+                    TaxRate: 1900,
+                    TotalAmount: 2500,
+                    TotalDiscountAmount: 500,
+                    TotalTaxAmount: 475,
+                    Type: "physical",
+                    UnitPrice: 2500,
+                },
+            },
+            OrderTaxAmount: 475,
+            PurchaseCountry: "GB",
+            PurchaseCurrency: "GBP",
+            ShippingAddress: &shared.Address{
+                Attention: "Attn",
+                City: "London",
+                Country: "GB",
+                Email: "test.sam@test.com",
+                FamilyName: "Andersson",
+                GivenName: "Adam",
+                OrganizationName: "recusandae",
+                Phone: "+44795465131",
+                PostalCode: "W1G 0PW",
+                Region: "OH",
+                StreetAddress: "33 Cavendish Square",
+                StreetAddress2: "Floor 22 / Flat 2",
+                Title: "Mr.",
+            },
+        },
+    }
+
+    res, err := s.Orders.Create(ctx, req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Order != nil {
+        // handle response
+    }
+}
+```
+<!-- End SDK Example Usage -->
