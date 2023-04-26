@@ -14,6 +14,10 @@ const (
 	CustomerTokenCreationRequestIntendedUseEnumSubscription CustomerTokenCreationRequestIntendedUseEnum = "SUBSCRIPTION"
 )
 
+func (e CustomerTokenCreationRequestIntendedUseEnum) ToPointer() *CustomerTokenCreationRequestIntendedUseEnum {
+	return &e
+}
+
 func (e *CustomerTokenCreationRequestIntendedUseEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

@@ -24,6 +24,10 @@ const (
 	CustomerOrganizationEntityTypeEnumOther                            CustomerOrganizationEntityTypeEnum = "OTHER"
 )
 
+func (e CustomerOrganizationEntityTypeEnum) ToPointer() *CustomerOrganizationEntityTypeEnum {
+	return &e
+}
+
 func (e *CustomerOrganizationEntityTypeEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

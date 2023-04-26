@@ -21,12 +21,12 @@ go get github.com/speakeasy-sdks/klarna-go
 ```go
 package main
 
-import (
-    "context"
-    "log"
-    "github.com/speakeasy-sdks/klarna-go"
-    "github.com/speakeasy-sdks/klarna-go/pkg/models/shared"
-    "github.com/speakeasy-sdks/klarna-go/pkg/models/operations"
+import(
+	"context"
+	"log"
+	"github.com/speakeasy-sdks/klarna-go"
+	"github.com/speakeasy-sdks/klarna-go/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/klarna-go/v2/pkg/models/shared"
 )
 
 func main() {
@@ -40,21 +40,21 @@ func main() {
     req := operations.CreateOrderRequest{
         AuthorizationToken: "corrupti",
         CreateOrderRequestInput: &shared.CreateOrderRequestInput{
-            AutoCapture: false,
+            AutoCapture: klarna.Bool(false),
             BillingAddress: &shared.Address{
-                Attention: "Attn",
-                City: "London",
-                Country: "GB",
-                Email: "test.sam@test.com",
-                FamilyName: "Andersson",
-                GivenName: "Adam",
-                OrganizationName: "provident",
-                Phone: "+44795465131",
-                PostalCode: "W1G 0PW",
-                Region: "OH",
-                StreetAddress: "33 Cavendish Square",
-                StreetAddress2: "Floor 22 / Flat 2",
-                Title: "Mr.",
+                Attention: klarna.String("Attn"),
+                City: klarna.String("London"),
+                Country: klarna.String("GB"),
+                Email: klarna.String("test.sam@test.com"),
+                FamilyName: klarna.String("Andersson"),
+                GivenName: klarna.String("Adam"),
+                OrganizationName: klarna.String("provident"),
+                Phone: klarna.String("+44795465131"),
+                PostalCode: klarna.String("W1G 0PW"),
+                Region: klarna.String("OH"),
+                StreetAddress: klarna.String("33 Cavendish Square"),
+                StreetAddress2: klarna.String("Floor 22 / Flat 2"),
+                Title: klarna.String("Mr."),
             },
             CustomPaymentMethodIds: []string{
                 "quibusdam",
@@ -62,102 +62,102 @@ func main() {
                 "nulla",
             },
             Customer: &shared.Customer{
-                DateOfBirth: "1978-12-31",
-                Gender: "male",
-                LastFourSsn: "corrupti",
-                NationalIdentificationNumber: "illum",
-                OrganizationEntityType: "LIMITED_PARTNERSHIP",
-                OrganizationRegistrationID: "error",
-                Title: "Mr.",
-                Type: "organization",
-                VatID: "deserunt",
+                DateOfBirth: klarna.String("1978-12-31"),
+                Gender: klarna.String("male"),
+                LastFourSsn: klarna.String("corrupti"),
+                NationalIdentificationNumber: klarna.String("illum"),
+                OrganizationEntityType: shared.CustomerOrganizationEntityTypeEnumLimitedPartnership.ToPointer(),
+                OrganizationRegistrationID: klarna.String("error"),
+                Title: klarna.String("Mr."),
+                Type: klarna.String("organization"),
+                VatID: klarna.String("deserunt"),
             },
-            Locale: "en-GB",
-            MerchantData: "{"order_specific":[{"substore":"Women's Fashion","product_name":"Women Sweatshirt"}]}",
-            MerchantReference1: "ON4711",
-            MerchantReference2: "hdt53h-zdgg6-hdaff2",
+            Locale: klarna.String("en-GB"),
+            MerchantData: klarna.String("{"order_specific":[{"substore":"Women's Fashion","product_name":"Women Sweatshirt"}]}"),
+            MerchantReference1: klarna.String("ON4711"),
+            MerchantReference2: klarna.String("hdt53h-zdgg6-hdaff2"),
             MerchantUrls: &shared.MerchantUrls{
-                Authorization: "https://www.example-url.com/authorization",
-                Confirmation: "https://www.example-url.com/confirmation",
-                Notification: "https://www.example-url.com/notification",
-                Push: "https://www.example-url.com/push",
+                Authorization: klarna.String("https://www.example-url.com/authorization"),
+                Confirmation: klarna.String("https://www.example-url.com/confirmation"),
+                Notification: klarna.String("https://www.example-url.com/notification"),
+                Push: klarna.String("https://www.example-url.com/push"),
             },
             OrderAmount: 2500,
             OrderLines: []shared.OrderLine{
                 shared.OrderLine{
-                    ImageURL: "https://www.exampleobjects.com/logo.png",
-                    MerchantData: "{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}",
+                    ImageURL: klarna.String("https://www.exampleobjects.com/logo.png"),
+                    MerchantData: klarna.String("{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}"),
                     Name: "Running shoe",
                     ProductIdentifiers: &shared.ProductIdentifiers{
-                        Brand: "shoe-brand",
-                        CategoryPath: "Shoes > Running",
-                        Color: "white",
-                        GlobalTradeItemNumber: "4912345678904",
-                        ManufacturerPartNumber: "AD6654412-334.22",
-                        Size: "small",
+                        Brand: klarna.String("shoe-brand"),
+                        CategoryPath: klarna.String("Shoes > Running"),
+                        Color: klarna.String("white"),
+                        GlobalTradeItemNumber: klarna.String("4912345678904"),
+                        ManufacturerPartNumber: klarna.String("AD6654412-334.22"),
+                        Size: klarna.String("small"),
                     },
-                    ProductURL: "https://.../AD6654412.html",
+                    ProductURL: klarna.String("https://.../AD6654412.html"),
                     Quantity: 1,
-                    QuantityUnit: "pcs",
-                    Reference: "AD6654412",
+                    QuantityUnit: klarna.String("pcs"),
+                    Reference: klarna.String("AD6654412"),
                     Subscription: &shared.Subscription{
-                        Interval: "WEEK",
+                        Interval: shared.SubscriptionIntervalEnumWeek,
                         IntervalCount: 297534,
                         Name: "Larry Windler",
                     },
-                    TaxRate: 1900,
+                    TaxRate: klarna.Int64(1900),
                     TotalAmount: 2500,
-                    TotalDiscountAmount: 500,
-                    TotalTaxAmount: 475,
-                    Type: "physical",
+                    TotalDiscountAmount: klarna.Int64(500),
+                    TotalTaxAmount: klarna.Int64(475),
+                    Type: klarna.String("physical"),
                     UnitPrice: 2500,
                 },
                 shared.OrderLine{
-                    ImageURL: "https://www.exampleobjects.com/logo.png",
-                    MerchantData: "{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}",
+                    ImageURL: klarna.String("https://www.exampleobjects.com/logo.png"),
+                    MerchantData: klarna.String("{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}"),
                     Name: "Running shoe",
                     ProductIdentifiers: &shared.ProductIdentifiers{
-                        Brand: "shoe-brand",
-                        CategoryPath: "Shoes > Running",
-                        Color: "white",
-                        GlobalTradeItemNumber: "4912345678904",
-                        ManufacturerPartNumber: "AD6654412-334.22",
-                        Size: "small",
+                        Brand: klarna.String("shoe-brand"),
+                        CategoryPath: klarna.String("Shoes > Running"),
+                        Color: klarna.String("white"),
+                        GlobalTradeItemNumber: klarna.String("4912345678904"),
+                        ManufacturerPartNumber: klarna.String("AD6654412-334.22"),
+                        Size: klarna.String("small"),
                     },
-                    ProductURL: "https://.../AD6654412.html",
+                    ProductURL: klarna.String("https://.../AD6654412.html"),
                     Quantity: 1,
-                    QuantityUnit: "pcs",
-                    Reference: "AD6654412",
+                    QuantityUnit: klarna.String("pcs"),
+                    Reference: klarna.String("AD6654412"),
                     Subscription: &shared.Subscription{
-                        Interval: "WEEK",
+                        Interval: shared.SubscriptionIntervalEnumWeek,
                         IntervalCount: 791725,
                         Name: "Ken Kshlerin",
                     },
-                    TaxRate: 1900,
+                    TaxRate: klarna.Int64(1900),
                     TotalAmount: 2500,
-                    TotalDiscountAmount: 500,
-                    TotalTaxAmount: 475,
-                    Type: "physical",
+                    TotalDiscountAmount: klarna.Int64(500),
+                    TotalTaxAmount: klarna.Int64(475),
+                    Type: klarna.String("physical"),
                     UnitPrice: 2500,
                 },
             },
-            OrderTaxAmount: 475,
+            OrderTaxAmount: klarna.Int64(475),
             PurchaseCountry: "GB",
             PurchaseCurrency: "GBP",
             ShippingAddress: &shared.Address{
-                Attention: "Attn",
-                City: "London",
-                Country: "GB",
-                Email: "test.sam@test.com",
-                FamilyName: "Andersson",
-                GivenName: "Adam",
-                OrganizationName: "recusandae",
-                Phone: "+44795465131",
-                PostalCode: "W1G 0PW",
-                Region: "OH",
-                StreetAddress: "33 Cavendish Square",
-                StreetAddress2: "Floor 22 / Flat 2",
-                Title: "Mr.",
+                Attention: klarna.String("Attn"),
+                City: klarna.String("London"),
+                Country: klarna.String("GB"),
+                Email: klarna.String("test.sam@test.com"),
+                FamilyName: klarna.String("Andersson"),
+                GivenName: klarna.String("Adam"),
+                OrganizationName: klarna.String("recusandae"),
+                Phone: klarna.String("+44795465131"),
+                PostalCode: klarna.String("W1G 0PW"),
+                Region: klarna.String("OH"),
+                StreetAddress: klarna.String("33 Cavendish Square"),
+                StreetAddress2: klarna.String("Floor 22 / Flat 2"),
+                Title: klarna.String("Mr."),
             },
         },
     }
@@ -178,23 +178,23 @@ func main() {
 ## Available Resources and Operations
 
 
-### Authorizations
+### [Authorizations](docs/authorizations/README.md)
 
-* `Cancel` - Cancel an existing authorization
+* [Cancel](docs/authorizations/README.md#cancel) - Cancel an existing authorization
 
-### Orders
+### [Orders](docs/orders/README.md)
 
-* `Create` - Create a new order
+* [Create](docs/orders/README.md#create) - Create a new order
 
-### Sessions
+### [Sessions](docs/sessions/README.md)
 
-* `Create` - Create a new payment session
-* `Read` - Read an existing payment session
-* `Update` - Update an existing payment session
+* [Create](docs/sessions/README.md#create) - Create a new payment session
+* [Read](docs/sessions/README.md#read) - Read an existing payment session
+* [Update](docs/sessions/README.md#update) - Update an existing payment session
 
-### Tokens
+### [Tokens](docs/tokens/README.md)
 
-* `Purchase` - Generate a consumer token
+* [Purchase](docs/tokens/README.md#purchase) - Generate a consumer token
 <!-- End SDK Available Operations -->
 
 ### Maturity

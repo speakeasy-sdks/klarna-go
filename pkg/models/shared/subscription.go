@@ -17,6 +17,10 @@ const (
 	SubscriptionIntervalEnumYear  SubscriptionIntervalEnum = "YEAR"
 )
 
+func (e SubscriptionIntervalEnum) ToPointer() *SubscriptionIntervalEnum {
+	return &e
+}
+
 func (e *SubscriptionIntervalEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

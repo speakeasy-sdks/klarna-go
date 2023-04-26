@@ -17,6 +17,10 @@ const (
 	SessionReadAcquiringChannelEnumTelesales SessionReadAcquiringChannelEnum = "TELESALES"
 )
 
+func (e SessionReadAcquiringChannelEnum) ToPointer() *SessionReadAcquiringChannelEnum {
+	return &e
+}
+
 func (e *SessionReadAcquiringChannelEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
@@ -44,6 +48,10 @@ const (
 	SessionReadIntentEnumBuyAndTokenize SessionReadIntentEnum = "buy_and_tokenize"
 )
 
+func (e SessionReadIntentEnum) ToPointer() *SessionReadIntentEnum {
+	return &e
+}
+
 func (e *SessionReadIntentEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
@@ -69,6 +77,10 @@ const (
 	SessionReadStatusEnumComplete   SessionReadStatusEnum = "complete"
 	SessionReadStatusEnumIncomplete SessionReadStatusEnum = "incomplete"
 )
+
+func (e SessionReadStatusEnum) ToPointer() *SessionReadStatusEnum {
+	return &e
+}
 
 func (e *SessionReadStatusEnum) UnmarshalJSON(data []byte) error {
 	var s string
