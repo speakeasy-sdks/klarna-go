@@ -10,5 +10,5 @@ generation:
   singleTagPerOp: false
 go:
   version: 2.2.1
-  maxMethodParams: 0
+  maxMethodParams: 5
   packageName: github.com/speakeasy-sdks/klarna-go
