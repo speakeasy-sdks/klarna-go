@@ -97,7 +97,11 @@ func (s *sessions) Create(ctx context.Context, request shared.SessionCreateInput
 // Use this API call to read a Klarna Payments session. You can read the Klarna Payments session at any time after it has been created, to get information about it. This will return all data that has been collected during the session.
 // Read more on **[Read an existing payment session](https://docs.klarna.com/klarna-payments/other-actions/check-the-details-of-a-payment-session/)**.
 
-func (s *sessions) Read(ctx context.Context, request operations.ReadCreditSessionRequest) (*operations.ReadCreditSessionResponse, error) {
+func (s *sessions) Read(ctx context.Context, sessionID string) (*operations.ReadCreditSessionResponse, error) {
+	request := operations.ReadCreditSessionRequest{
+		SessionID: sessionID,
+	}
+
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/payments/v1/sessions/{session_id}", request, nil)
 	if err != nil {
@@ -150,7 +154,12 @@ func (s *sessions) Read(ctx context.Context, request operations.ReadCreditSessio
 // Use this API call to update a Klarna Payments session with new details, in case something in the order has changed and the checkout has been reloaded. Including if the consumer adds a new item to the cart or if consumer details are updated.
 // Read more on **[Update an existing payment session](https://docs.klarna.com/klarna-payments/other-actions/update-the-cart/)**.
 
-func (s *sessions) Update(ctx context.Context, request operations.UpdateCreditSessionRequest) (*operations.UpdateCreditSessionResponse, error) {
+func (s *sessions) Update(ctx context.Context, sessionInput shared.SessionInput, sessionID string) (*operations.UpdateCreditSessionResponse, error) {
+	request := operations.UpdateCreditSessionRequest{
+		SessionInput: sessionInput,
+		SessionID:    sessionID,
+	}
+
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/payments/v1/sessions/{session_id}", request, nil)
 	if err != nil {

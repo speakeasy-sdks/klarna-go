@@ -31,3 +31,11 @@ Based on:
 - Speakeasy CLI 1.27.0 (2.24.0) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Go v2.2.1] https://github.com/speakeasy-sdks/klarna-go/releases/tag/v2.2.1 - .
+
+## 2023-05-03 09:09:42
+### Changes
+Based on:
+- OpenAPI Doc 1.0.0 openapi/openapi.yaml
+- Speakeasy CLI 1.27.0 (2.24.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Go v2.2.2] https://github.com/speakeasy-sdks/klarna-go/releases/tag/v2.2.2 - .
