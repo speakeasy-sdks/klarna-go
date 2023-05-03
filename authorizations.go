@@ -34,6 +34,7 @@ func newAuthorizations(defaultClient, securityClient HTTPClient, serverURL, lang
 // Cancel - Cancel an existing authorization
 // Use this API call to cancel/release an authorization. If the `authorization_token` received during a Klarna Payments won’t be used to place an order immediately you could release the authorization.
 // Read more on **[Cancel an existing authorization](https://docs.klarna.com/klarna-payments/other-actions/cancel-an-authorization/)**.
+
 func (s *authorizations) Cancel(ctx context.Context, request operations.CancelAuthorizationRequest) (*operations.CancelAuthorizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/payments/v1/authorizations/{authorizationToken}", request, nil)

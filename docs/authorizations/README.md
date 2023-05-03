@@ -32,12 +32,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CancelAuthorizationRequest{
+    ctx := context.Background()
+    res, err := s.Authorizations.Cancel(ctx, operations.CancelAuthorizationRequest{
         AuthorizationToken: "temporibus",
-    }
-
-    res, err := s.Authorizations.Cancel(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

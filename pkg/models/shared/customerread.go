@@ -29,11 +29,11 @@ func (e CustomerReadOrganizationEntityTypeEnum) ToPointer() *CustomerReadOrganiz
 }
 
 func (e *CustomerReadOrganizationEntityTypeEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "LIMITED_COMPANY":
 		fallthrough
 	case "PUBLIC_LIMITED_COMPANY":
@@ -55,10 +55,10 @@ func (e *CustomerReadOrganizationEntityTypeEnum) UnmarshalJSON(data []byte) erro
 	case "PUBLIC_INSTITUTION":
 		fallthrough
 	case "OTHER":
-		*e = CustomerReadOrganizationEntityTypeEnum(s)
+		*e = CustomerReadOrganizationEntityTypeEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CustomerReadOrganizationEntityTypeEnum: %s", s)
+		return fmt.Errorf("invalid value for CustomerReadOrganizationEntityTypeEnum: %v", v)
 	}
 }
 

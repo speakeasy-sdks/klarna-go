@@ -33,8 +33,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.PurchaseTokenRequest{
+    ctx := context.Background()
+    res, err := s.Tokens.Purchase(ctx, operations.PurchaseTokenRequest{
         AuthorizationToken: "mollitia",
         CustomerTokenCreationRequest: &shared.CustomerTokenCreationRequest{
             BillingAddress: &shared.Address{
@@ -69,9 +69,7 @@ func main() {
             PurchaseCountry: "GB",
             PurchaseCurrency: "GBP",
         },
-    }
-
-    res, err := s.Tokens.Purchase(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

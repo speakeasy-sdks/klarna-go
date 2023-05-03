@@ -21,20 +21,20 @@ func (e SessionCreateAcquiringChannelEnum) ToPointer() *SessionCreateAcquiringCh
 }
 
 func (e *SessionCreateAcquiringChannelEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "ECOMMERCE":
 		fallthrough
 	case "IN_STORE":
 		fallthrough
 	case "TELESALES":
-		*e = SessionCreateAcquiringChannelEnum(s)
+		*e = SessionCreateAcquiringChannelEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for SessionCreateAcquiringChannelEnum: %s", s)
+		return fmt.Errorf("invalid value for SessionCreateAcquiringChannelEnum: %v", v)
 	}
 }
 
@@ -52,20 +52,20 @@ func (e SessionCreateIntentEnum) ToPointer() *SessionCreateIntentEnum {
 }
 
 func (e *SessionCreateIntentEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "buy":
 		fallthrough
 	case "tokenize":
 		fallthrough
 	case "buy_and_tokenize":
-		*e = SessionCreateIntentEnum(s)
+		*e = SessionCreateIntentEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for SessionCreateIntentEnum: %s", s)
+		return fmt.Errorf("invalid value for SessionCreateIntentEnum: %v", v)
 	}
 }
 

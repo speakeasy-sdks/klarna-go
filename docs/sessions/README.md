@@ -34,8 +34,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.SessionCreateInput{
+    ctx := context.Background()
+    res, err := s.Sessions.Create(ctx, shared.SessionCreateInput{
         AcquiringChannel: shared.SessionCreateAcquiringChannelEnumEcommerce.ToPointer(),
         Attachment: &shared.Attachment{
             Body: "{"customer_account_info":[{"unique_account_identifier":"test@gmail.com","account_registration_date":"2017-02-13T10:49:20Z","account_last_modified":"2019-03-13T11:45:27Z"}]}",
@@ -140,9 +140,7 @@ func main() {
             StreetAddress2: klarna.String("Floor 22 / Flat 2"),
             Title: klarna.String("Mr."),
         },
-    }
-
-    res, err := s.Sessions.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -177,12 +175,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ReadCreditSessionRequest{
+    ctx := context.Background()
+    res, err := s.Sessions.Read(ctx, operations.ReadCreditSessionRequest{
         SessionID: "excepturi",
-    }
-
-    res, err := s.Sessions.Read(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -218,8 +214,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateCreditSessionRequest{
+    ctx := context.Background()
+    res, err := s.Sessions.Update(ctx, operations.UpdateCreditSessionRequest{
         SessionInput: shared.SessionInput{
             AcquiringChannel: shared.SessionAcquiringChannelEnumEcommerce.ToPointer(),
             Attachment: &shared.Attachment{
@@ -409,9 +405,7 @@ func main() {
             },
         },
         SessionID: "architecto",
-    }
-
-    res, err := s.Sessions.Update(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

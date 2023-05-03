@@ -36,8 +36,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateOrderRequest{
+    ctx := context.Background()
+    res, err := s.Orders.Create(ctx, operations.CreateOrderRequest{
         AuthorizationToken: "corrupti",
         CreateOrderRequestInput: &shared.CreateOrderRequestInput{
             AutoCapture: klarna.Bool(false),
@@ -160,9 +160,7 @@ func main() {
                 Title: klarna.String("Mr."),
             },
         },
-    }
-
-    res, err := s.Orders.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
