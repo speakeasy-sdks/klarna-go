@@ -9,6 +9,6 @@ generation:
   sdkClassName: klarna
   singleTagPerOp: false
 go:
-  version: 2.2.1
+  version: 2.2.2
   maxMethodParams: 5
   packageName: github.com/speakeasy-sdks/klarna-go

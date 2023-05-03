@@ -34,41 +34,38 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Tokens.Purchase(ctx, operations.PurchaseTokenRequest{
-        AuthorizationToken: "mollitia",
-        CustomerTokenCreationRequest: &shared.CustomerTokenCreationRequest{
-            BillingAddress: &shared.Address{
-                Attention: klarna.String("Attn"),
-                City: klarna.String("London"),
-                Country: klarna.String("GB"),
-                Email: klarna.String("test.sam@test.com"),
-                FamilyName: klarna.String("Andersson"),
-                GivenName: klarna.String("Adam"),
-                OrganizationName: klarna.String("dolorem"),
-                Phone: klarna.String("+44795465131"),
-                PostalCode: klarna.String("W1G 0PW"),
-                Region: klarna.String("OH"),
-                StreetAddress: klarna.String("33 Cavendish Square"),
-                StreetAddress2: klarna.String("Floor 22 / Flat 2"),
-                Title: klarna.String("Mr."),
-            },
-            Customer: &shared.Customer{
-                DateOfBirth: klarna.String("1978-12-31"),
-                Gender: klarna.String("male"),
-                LastFourSsn: klarna.String("culpa"),
-                NationalIdentificationNumber: klarna.String("consequuntur"),
-                OrganizationEntityType: shared.CustomerOrganizationEntityTypeEnumOther.ToPointer(),
-                OrganizationRegistrationID: klarna.String("mollitia"),
-                Title: klarna.String("Mr."),
-                Type: klarna.String("organization"),
-                VatID: klarna.String("occaecati"),
-            },
-            Description: "numquam",
-            IntendedUse: shared.CustomerTokenCreationRequestIntendedUseEnumSubscription,
-            Locale: "en-GB",
-            PurchaseCountry: "GB",
-            PurchaseCurrency: "GBP",
+    res, err := s.Tokens.Purchase(ctx, "mollitia", &shared.CustomerTokenCreationRequest{
+        BillingAddress: &shared.Address{
+            Attention: klarna.String("Attn"),
+            City: klarna.String("London"),
+            Country: klarna.String("GB"),
+            Email: klarna.String("test.sam@test.com"),
+            FamilyName: klarna.String("Andersson"),
+            GivenName: klarna.String("Adam"),
+            OrganizationName: klarna.String("dolorem"),
+            Phone: klarna.String("+44795465131"),
+            PostalCode: klarna.String("W1G 0PW"),
+            Region: klarna.String("OH"),
+            StreetAddress: klarna.String("33 Cavendish Square"),
+            StreetAddress2: klarna.String("Floor 22 / Flat 2"),
+            Title: klarna.String("Mr."),
         },
+        Customer: &shared.Customer{
+            DateOfBirth: klarna.String("1978-12-31"),
+            Gender: klarna.String("male"),
+            LastFourSsn: klarna.String("culpa"),
+            NationalIdentificationNumber: klarna.String("consequuntur"),
+            OrganizationEntityType: shared.CustomerOrganizationEntityTypeEnumOther.ToPointer(),
+            OrganizationRegistrationID: klarna.String("mollitia"),
+            Title: klarna.String("Mr."),
+            Type: klarna.String("organization"),
+            VatID: klarna.String("occaecati"),
+        },
+        Description: "numquam",
+        IntendedUse: shared.CustomerTokenCreationRequestIntendedUseEnumSubscription,
+        Locale: "en-GB",
+        PurchaseCountry: "GB",
+        PurchaseCurrency: "GBP",
     })
     if err != nil {
         log.Fatal(err)

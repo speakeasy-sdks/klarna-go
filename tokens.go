@@ -36,7 +36,12 @@ func newTokens(defaultClient, securityClient HTTPClient, serverURL, language, sd
 // Use this API call to create a Klarna Customer Token.<br/>After having obtained an `authorization_token` for a successful authorization, this can be used to create a purchase token instead of placing the order. Creating a Klarna Customer Token results in Klarna storing customer and payment method details.
 // Read more on **[Generate a consumer token](https://docs.klarna.com/klarna-payments/in-depth-knowledge/customer-token/)**.
 
-func (s *tokens) Purchase(ctx context.Context, request operations.PurchaseTokenRequest) (*operations.PurchaseTokenResponse, error) {
+func (s *tokens) Purchase(ctx context.Context, authorizationToken string, customerTokenCreationRequest *shared.CustomerTokenCreationRequest) (*operations.PurchaseTokenResponse, error) {
+	request := operations.PurchaseTokenRequest{
+		AuthorizationToken:           authorizationToken,
+		CustomerTokenCreationRequest: customerTokenCreationRequest,
+	}
+
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/payments/v1/authorizations/{authorizationToken}/customer-token", request, nil)
 	if err != nil {
