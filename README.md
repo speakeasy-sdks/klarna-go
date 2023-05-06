@@ -37,7 +37,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Orders.Create(ctx, "corrupti", &shared.CreateOrderRequestInput{
+    res, err := s.Orders.Read(ctx, "corrupti", &shared.CreateOrderRequestInput{
         AutoCapture: klarna.Bool(false),
         BillingAddress: &shared.Address{
             Attention: klarna.String("Attn"),
@@ -179,12 +179,12 @@ func main() {
 
 ### [Orders](docs/orders/README.md)
 
-* [Create](docs/orders/README.md#create) - Create a new order
+* [Read](docs/orders/README.md#read) - Create a new order
 
 ### [Sessions](docs/sessions/README.md)
 
-* [Create](docs/sessions/README.md#create) - Create a new payment session
 * [Read](docs/sessions/README.md#read) - Read an existing payment session
+* [Read](docs/sessions/README.md#read) - Create a new payment session
 * [Update](docs/sessions/README.md#update) - Update an existing payment session
 
 ### [Tokens](docs/tokens/README.md)

@@ -32,11 +32,11 @@ func newOrders(defaultClient, securityClient HTTPClient, serverURL, language, sd
 	}
 }
 
-// Create - Create a new order
+// Read - Create a new order
 // Use this API call to create a new order. Placing an order towards Klarna means that the Klarna Payments session will be closed and that an order will be created in Klarna's system.<br/>When you have received the `authorization_token` for a successful authorization you can place the order. Among the other order details in this request, you include a URL to the confirmation page for the customer.<br/>When the Order has been successfully placed at Klarna, you need to handle it either through the Merchant Portal or using [Klarna’s Order Management API](#order-management-api).
 // Read more on **[Create a new order](https://docs.klarna.com/klarna-payments/integrate-with-klarna-payments/step-3-create-an-order/)**.
 
-func (s *orders) Create(ctx context.Context, authorizationToken string, createOrderRequestInput *shared.CreateOrderRequestInput) (*operations.CreateOrderResponse, error) {
+func (s *orders) Read(ctx context.Context, authorizationToken string, createOrderRequestInput *shared.CreateOrderRequestInput) (*operations.CreateOrderResponse, error) {
 	request := operations.CreateOrderRequest{
 		AuthorizationToken:      authorizationToken,
 		CreateOrderRequestInput: createOrderRequestInput,
