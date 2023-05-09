@@ -34,7 +34,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Tokens.Purchase(ctx, "mollitia", &shared.CustomerTokenCreationRequest{
+    res, err := s.Tokens.Purchase(ctx, "occaecati", &shared.CustomerTokenCreationRequest{
         BillingAddress: &shared.Address{
             Attention: klarna.String("Attn"),
             City: klarna.String("London"),
@@ -42,7 +42,7 @@ func main() {
             Email: klarna.String("test.sam@test.com"),
             FamilyName: klarna.String("Andersson"),
             GivenName: klarna.String("Adam"),
-            OrganizationName: klarna.String("dolorem"),
+            OrganizationName: klarna.String("numquam"),
             Phone: klarna.String("+44795465131"),
             PostalCode: klarna.String("W1G 0PW"),
             Region: klarna.String("OH"),
@@ -53,15 +53,15 @@ func main() {
         Customer: &shared.Customer{
             DateOfBirth: klarna.String("1978-12-31"),
             Gender: klarna.String("male"),
-            LastFourSsn: klarna.String("culpa"),
-            NationalIdentificationNumber: klarna.String("consequuntur"),
-            OrganizationEntityType: shared.CustomerOrganizationEntityTypeEnumOther.ToPointer(),
-            OrganizationRegistrationID: klarna.String("mollitia"),
+            LastFourSsn: klarna.String("commodi"),
+            NationalIdentificationNumber: klarna.String("quam"),
+            OrganizationEntityType: shared.CustomerOrganizationEntityTypeEnumGeneralPartnership.ToPointer(),
+            OrganizationRegistrationID: klarna.String("velit"),
             Title: klarna.String("Mr."),
             Type: klarna.String("organization"),
-            VatID: klarna.String("occaecati"),
+            VatID: klarna.String("error"),
         },
-        Description: "numquam",
+        Description: "quia",
         IntendedUse: shared.CustomerTokenCreationRequestIntendedUseEnumSubscription,
         Locale: "en-GB",
         PurchaseCountry: "GB",

@@ -18,7 +18,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Orders.Create(ctx, "corrupti", &shared.CreateOrderRequestInput{
+    res, err := s.Orders.Read(ctx, "corrupti", &shared.CreateOrderRequestInput{
         AutoCapture: klarna.Bool(false),
         BillingAddress: &shared.Address{
             Attention: klarna.String("Attn"),
