@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: 005a0e955a1f5a07ed61636530698d3a
   docVersion: 1.0.0
-  speakeasyVersion: 1.27.0
-  generationVersion: 2.24.0
+  speakeasyVersion: 1.29.2
+  generationVersion: 2.26.2
 generation:
   telemetryEnabled: false
   sdkClassName: klarna
   singleTagPerOp: false
 go:
-  version: 2.2.2
+  version: 2.3.0
   maxMethodParams: 5
   packageName: github.com/speakeasy-sdks/klarna-go
