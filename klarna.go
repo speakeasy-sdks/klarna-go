@@ -99,8 +99,8 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *Klarna {
 	sdk := &Klarna{
 		_language:   "go",
-		_sdkVersion: "2.2.2",
-		_genVersion: "2.24.0",
+		_sdkVersion: "2.3.0",
+		_genVersion: "2.26.4",
 	}
 	for _, opt := range opts {
 		opt(sdk)
