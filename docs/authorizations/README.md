@@ -28,7 +28,7 @@ import(
 func main() {
     s := klarna.New(
         klarna.WithSecurity(shared.Security{
-            APIKeyAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+            APIKeyAuth: "YOUR_BEARER_TOKEN_HERE",
         }),
     )
 
