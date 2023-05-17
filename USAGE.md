@@ -13,12 +13,12 @@ import(
 func main() {
     s := klarna.New(
         klarna.WithSecurity(shared.Security{
-            APIKeyAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+            APIKeyAuth: "YOUR_BEARER_TOKEN_HERE",
         }),
     )
 
     ctx := context.Background()
-    res, err := s.Orders.Create(ctx, "corrupti", &shared.CreateOrderRequestInput{
+    res, err := s.Orders.Read(ctx, "corrupti", &shared.CreateOrderRequestInput{
         AutoCapture: klarna.Bool(false),
         BillingAddress: &shared.Address{
             Attention: klarna.String("Attn"),
